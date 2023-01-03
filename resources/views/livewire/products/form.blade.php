@@ -8,6 +8,15 @@
             Agregar nuevo platillo <i class="fas fa-folder-plus"></i>
         </div>
     @endif
+    <div class="form-group mb-2">
+        <label for="category_id">Categoria:</label>
+        <select wire:model.lazy="category_id" class="form-control">
+            <option value="">Seleccione una categoria</option>
+            @foreach (App\Models\Category::get() as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
 
     <div class="form-group">
         <label for="name">Nombre del platillo:</label>

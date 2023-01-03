@@ -13,8 +13,9 @@ class ProductComponent extends Component
     use WithPagination;
     use WithFileUploads;
 
-    public $name, $description, $image, $price, $search, $selected_id, $identificador;
+    public $name, $description, $image, $price, $category_id, $search, $selected_id, $identificador;
     protected $pagination = 5;
+    public $productCount;
 
     public function mount()
     {
@@ -31,12 +32,14 @@ class ProductComponent extends Component
             'description' => 'required',
             'price' => 'required',
             'image' => 'required|image',
+            'category_id' => 'required',
         ]);
 
         $product = Product::create([
             'name' => $this->name,
             'description' => $this->description,
             'price' => $this->price,
+            'category_id' => $this->category_id,
         ]);
 
         if ($this->image) {
@@ -55,6 +58,7 @@ class ProductComponent extends Component
         $this->name = $recordProducts->name;
         $this->description = $recordProducts->description;
         $this->price = $recordProducts->price;
+        $this->category_id = $recordProducts->category_id;
         $this->image = null;
         $this->selected_id = $recordProducts->id;
     }
@@ -67,6 +71,8 @@ class ProductComponent extends Component
         $this->price = '';
         $this->search = '';
         $this->selected_id = 0;
+
+        $this->category_id = 0;
 
         $this->identificador = rand();
     }

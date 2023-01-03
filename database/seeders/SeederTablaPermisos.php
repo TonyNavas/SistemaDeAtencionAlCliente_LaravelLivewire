@@ -35,10 +35,23 @@ class SeederTablaPermisos extends Seeder
 
             // Tabla categories
 
-            'ver-categories',
-            'crear-categories',
-            'editar-categories',
-            'borrar-categories',
+            'ver-categorias',
+            'crear-categorias',
+            'editar-categorias',
+            'borrar-categorias',
+
+            // Tabla products
+
+            'ver-productos',
+            'crear-productos',
+            'editar-productos',
+            'borrar-productos',
+
+            // Cabañas
+
+            'ver-timbre',
+            'ver-notificaciones',
+
         ];
 
         foreach ($permisos as $permiso) {

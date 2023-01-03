@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Image</th>
+                                <th scope="col">Categoria</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Precio</th>
@@ -45,8 +46,9 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td><img width="90px" class="rounded" src="{{ asset('storage/products/' . $product->image) }}" alt="Image">
+                                    <td><img width="80px" height="70px" class="rounded" src="{{ asset('storage/products/' . $product->image) }}" alt="Image">
                                     </td>
+                                    <td>{{ $product->category->name }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->description }}</td>
                                     <td>
