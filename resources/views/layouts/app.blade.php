@@ -78,6 +78,8 @@
         </main>
     </div>
 
+    <script src="https://kit.fontawesome.com/65614fa71e.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireScripts
 </body>
 </html>
