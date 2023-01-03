@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,18 @@
     <title>Atencion al cliente</title>
 
     @include('layouts.template.styles')
+    @livewireStyles
 </head>
 
-<body class="layout-boxed alt-menu">
+<body class="layout-boxed">
     <!-- BEGIN LOADER -->
-    <div id="load_screen"> <div class="loader"> <div class="loader-content">
-        <div class="spinner-grow align-self-center"></div>
-    </div></div></div>
+    <div id="load_screen">
+        <div class="loader">
+            <div class="loader-content">
+                <div class="spinner-grow align-self-center"></div>
+            </div>
+        </div>
+    </div>
     <!--  END LOADER -->
 
     @include('layouts.template.navbar')
@@ -48,5 +54,22 @@
 
     @include('layouts.template.scripts')
 
+    @vite(['resources/js/app.js'])
+    @livewireScripts
+
+    @auth
+        <script>
+            window.onload=function(){
+                Echo.private('App.Models.User.' + {{ Auth::user()->id }})
+                    .notification((notification) => {
+                    Livewire.emit('notification')
+                    console.log(notification.type);
+                });
+            }
+
+        </script>
+    @endauth
+
 </body>
+
 </html>

@@ -18,3 +18,13 @@
     <link href="{{ asset('src/assets/css/light/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('src/assets/css/dark/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+    <style>
+        .unreadColor {
+            background: rgb(255, 239, 239);
+        }
+        .fondoAzul{
+            background: #0275d8 !important;
+            color: #fff;
+        }
+    </style>
