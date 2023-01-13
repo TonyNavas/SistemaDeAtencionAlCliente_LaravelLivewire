@@ -13,7 +13,13 @@
                 </div>
 
                 <div class="mt-2">
-                    <button wire:click="clearImage" class="btn btn-danger">Eliminar imagen</button>
+                    <button wire:click="clearImage" class="btn btn-danger">
+                        <span>
+
+                                Eliminar imagen
+                                <i class="fa-solid fa-trash-can"></i>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>

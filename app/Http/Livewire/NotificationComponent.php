@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Notifications\Notification;
 use Livewire\Component;
 
 class NotificationComponent extends Component
@@ -26,11 +27,46 @@ class NotificationComponent extends Component
 
         $notification = auth()->user()->notifications()->findOrFail($notification_id);
         $notification->markAsRead();
+
+        $this->resetNotificationCount();
+        $this->notificationCount();
+    }
+    public function markAsReadAll(){
+
+        $notification = auth()->user()->notifications()->get();
+        $notification->markAsRead();
+
+        $this->resetNotificationCount();
+        $this->notificationCount();
+
     }
 
     public function notification(){
         $this->notifications = auth()->user()->notifications;
         $this->count = auth()->user()->unreadNotifications->count();
+
+        $this->emit('notification-received');
+    }
+
+    public function notificationCount(){
+        $this->notifications = auth()->user()->notifications;
+        $this->count = auth()->user()->unreadNotifications->count();
+    }
+
+    public function deleteNotify($notification_id){
+        $notification = auth()->user()->notifications()->findOrFail($notification_id);
+        $notification->delete();
+
+        $this->resetNotificationCount();
+        $this->notificationCount();
+    }
+
+    public function deleteAllNotifications(){
+        $notification = auth()->user()->notifications();
+        $notification->delete();
+
+        $this->resetNotificationCount();
+        $this->notificationCount();
     }
 
     public function render()

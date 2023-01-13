@@ -32,7 +32,8 @@ class MessageSent extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail', 'database', 'broadcast'];
+        // Mail
+        return ['database', 'broadcast'];
     }
 
     /**

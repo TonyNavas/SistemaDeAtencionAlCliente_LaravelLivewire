@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
 
-        @can('crear-categories')
+        @can('crear-categorias')
         <div class="card">
             <div class="card-body">
                 @include('livewire.category.form')
@@ -9,17 +9,17 @@
         </div>
         @endcan
 
-        @can('ver-categories')
+        @can('ver-categorias')
         @include('livewire.category.card-count')
         @endcan
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12">
 
-        @can('ver-categories')
+        @can('ver-categorias')
         @include('livewire.category.image-load')
         @endcan
 
-        @can('ver-categories')
+        @can('ver-categorias')
         <div class="card shadow">
             <div class="card-body">
                 @if ($selected_id >= 1)
@@ -43,21 +43,26 @@
                         <tbody>
                             @foreach ($categories as $category)
                                 <tr>
-                                    <td><img width="50px" class="img-fluid rounded-circle"
+                                    <td><img style="max-width: 70px; height: 50px;" class="img-fluid rounded"
                                             src="{{ asset('storage/categories/' . $category->image) }}" alt="Image">
                                     </td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
                                     <td class="text-center">
+
+                                        @can('editar-categorias')
                                         <a href="javascript:void(0)" wire:click="edit({{ $category->id }})"
                                             class="btn btn-primary shadow" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        @endcan
 
+                                        @can('borrar-categorias')
                                         <a href="javascript:void(0)" onclick="Confirm('{{ $category->id }}')"
                                             class="btn shadow btn-danger" title="Eliminar">
                                             <i class="fas fa-trash"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach
@@ -73,7 +78,7 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
 
         window.livewire.on('category-deleted', msg => {
             Swal.fire({
@@ -89,7 +94,7 @@
     });
 
     function Confirm(id) {
-        swal.fire({
+        Swal.fire({
             title: 'Estas seguro?',
             text: "No podras revertir esta acción!",
             icon: 'warning',

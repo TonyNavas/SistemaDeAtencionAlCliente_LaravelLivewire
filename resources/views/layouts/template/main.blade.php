@@ -8,6 +8,8 @@
     <title>Atencion al cliente</title>
 
     @include('layouts.template.styles')
+
+    @vite(['resources/css/app.css'])
     @livewireStyles
 </head>
 
@@ -59,14 +61,29 @@
 
     @auth
         <script>
-            window.onload=function(){
+            window.onload = function() {
                 Echo.private('App.Models.User.' + {{ Auth::user()->id }})
                     .notification((notification) => {
-                    Livewire.emit('notification')
-                    console.log(notification.type);
-                });
+                        Livewire.emit('notification')
+                        console.log(notification.type);
+                    });
             }
+            window.Livewire.on('notification-received', msg => {
 
+                Swal.fire({
+                    icon: 'info',
+                    background: '#191E3A',
+                    color: '#fff',
+                    confirmButtonColor: '#3085d6',
+                    title: 'Has recibido una nueva notificación',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+            })
         </script>
     @endauth
 

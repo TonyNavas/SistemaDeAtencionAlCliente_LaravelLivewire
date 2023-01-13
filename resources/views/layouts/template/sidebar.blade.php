@@ -22,6 +22,17 @@
                 </div>
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
+
+                    <li class="menu mt-2 {{ Request::is('home') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="fa fa-home {{ Request::is('home') ? 'text-white' : '' }}"></i>
+                                <span>Inicio</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    @can('ver-rol')
                     <li class="menu">
                         <a href="#roles" data-bs-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
@@ -41,7 +52,9 @@
                             </li>
                         </ul>
                     </li>
+                    @endcan
 
+                    @can('ver-usuarios')
                     <li class="menu">
                         <a href="#usuarios" data-bs-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
@@ -71,11 +84,13 @@
                             </li>
                         </ul>
                     </li>
+                    @endcan
 
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Navegación</span></div>
                     </li>
 
+                    @can('ver-categorias')
                     <li class="menu">
                         <a href="{{ route('categories.index') }}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -84,7 +99,9 @@
                             </div>
                         </a>
                     </li>
+                    @endcan
 
+                    @can('ver-productos')
                     <li class="menu">
                         <a href="{{ route('products.index') }}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -93,6 +110,7 @@
                             </div>
                         </a>
                     </li>
+                    @endcan
                 </ul>
 
             </nav>

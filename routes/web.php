@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/admin/roles', RolController::class)->middleware('can:ver-roles');
     Route::resource('/admin/usuarios', UserController::class)->middleware('can:ver-usuarios');
 
-    Route::get('admin/categories', CategoryComponent::class)->name('categories.index')->middleware('can:ver-categories');
+    Route::get('admin/categories', CategoryComponent::class)->name('categories.index')->middleware('can:ver-categorias');
     Route::get('admin/products', ProductComponent::class)->name('products.index')->middleware('can:ver-products');
 });
 
