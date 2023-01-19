@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolController;
@@ -7,6 +8,8 @@ use App\Http\Livewire\ProductComponent;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,19 +22,22 @@ use App\Http\Controllers\MessageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', WelcomeController::class)->name('inicio');
+
+Route::get('platillos/{product}', [ProductController::class, 'show'])->name('products.show');
+
+Route::get('/menu', MenuController::class)->name('menu');
+Route::get('menu/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Messages
+Route::get('mensajes', [MessageController::class, 'index'])->name('message.index');
 // Notifications
 Route::post('messages', [MessageController::class,'store'])->name('messages.store');
 Route::get('messages/{message}',[ MessageController::class,'show'])->name('messages.show');
-
-
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/admin/roles', RolController::class)->middleware('can:ver-roles');

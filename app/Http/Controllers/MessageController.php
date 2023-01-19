@@ -9,6 +9,23 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+    public function index(){
+
+        $users = User::all();
+        $usuarios = auth()->user()->getRoleNames();
+
+        foreach($usuarios as $roleName){
+            if($roleName == 'Administrador'){
+                $messages = Message::all();
+            }else{
+                $messages = Message::where('from_user_id', auth()->user()->id)
+                ->orderBy('id', 'desc')->get();
+            }
+        }
+
+        return view('messages.index', compact('messages', 'users'));
+    }
+
     public function show($message){
         $messages = Message::find($message);
         return view('messages.show', compact('messages'));

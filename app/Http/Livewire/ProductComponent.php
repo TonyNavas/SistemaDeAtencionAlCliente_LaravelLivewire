@@ -23,7 +23,10 @@ class ProductComponent extends Component
         $this->productCount = Product::count();
         $this->identificador = rand();
     }
-
+    public function paginationView()
+    {
+        return 'vendor.livewire.bootstrap';
+    }
     public function store()
     {
 

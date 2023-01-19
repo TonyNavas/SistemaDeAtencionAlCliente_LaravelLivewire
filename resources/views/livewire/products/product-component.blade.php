@@ -49,8 +49,8 @@
                                     <td><img width="80px" height="70px" class="rounded" src="{{ asset('storage/products/' . $product->image) }}" alt="Image">
                                     </td>
                                     <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->description }}</td>
+                                    <td>{{ Str::limit($product->name, 10, '...') }}</td>
+                                    <td>{{ Str::limit($product->description, 20, '...') }}</td>
                                     <td>
                                         <span class="badge badge-success">
                                             C$:{{ number_format($product->price, 2) }}
