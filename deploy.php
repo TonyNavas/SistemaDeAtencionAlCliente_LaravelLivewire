@@ -1,9 +1,8 @@
-
- <?php
-
+<?php
 namespace Deployer;
 
-require 'recipe/laravel.php';
+require 'recipe/common.php';
+
 require 'contrib/npm.php';
 require 'contrib/rsync.php';
 
