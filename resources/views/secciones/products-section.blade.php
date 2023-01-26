@@ -20,11 +20,11 @@
                             <div class="mb-2">
                                 <p class=" fw-semibold">
                                     <span class="badge bg-primary">{{ $product->category->name }}</span>
-                                    <span class="badge p-2 bg-warning shadow float-end"
+                                    {{-- <span class="badge p-2 bg-warning shadow float-end"
 
                                 <b>C$:{{ number_format($product->price, 2) }}</b>
                                 <i class="fa-solid fa-tag"></i>
-                            </span>
+                            </span> --}}
                                 </p>
 
                                 <p>{{ Str::limit($product->description, 100, '...') }}</p>

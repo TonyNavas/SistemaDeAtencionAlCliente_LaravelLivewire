@@ -29,10 +29,10 @@
 <body style="font-family: 'Montserrat', sans-serif;
 ">
     <div id="app">
-        <nav style="z-index: 4;"
-            class="flex navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed l-0 r-0">
+        <nav style="z-index: 10;"
+            class=" flex navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed l-0 r-0">
 
-            <div style="max-width: 100rem;" class="container">
+            <div class="container">
                 <a class="navbar-brand ms-4" href="{{ url('/') }}">
                     <img style="width: 150px; height: 50px;" src="{{ asset('img/logo.png') }}" alt="">
                 </a>
@@ -72,10 +72,10 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link" href="{{ route('home') }}">
+                            <a class="nav-link {{ Request::is('contacts') ? 'RouteActive' : '' }}" href="{{ route('contacts.index') }}">
                                 <span>
                                     <i class="fa-solid fa-address-card"></i>
-                                    Quienes somos
+                                    Nosotros
                                 </span>
                             </a>
                         </li>
@@ -83,7 +83,7 @@
                             <a class="nav-link" href="{{ route('home') }}">
                                 <span>
                                     <i class="fa-solid fa-gear"></i>
-                                    Nuestros servicios
+                                    Servicios
                                 </span>
                             </a>
                         </li>
@@ -97,23 +97,32 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        <span>
+                                            <i class="fa-solid fa-user-lock"></i>
+                                            Iniciar sesión
+                                        </span>
+                                    </a>
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Crear una cuenta') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             @livewire('notifications-home')
 
                             <div class="dropdown dropstart">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                <a class="nav-link dropdown" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="badge bg-primary p-2">
+                                        <i class="fa-solid fa-user-check"></i>
                                     {{ Auth::user()->name }}
-                                </button>
+                                    </span>
+                                </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
                                     <li class="p-1">
@@ -181,7 +190,7 @@
     @endauth
 
 </body>
-<footer class="bd-footer bg-light shadow-lg">
+<footer class="bd-footer bg-light shadow-lg p-4">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-3 mb-3">
@@ -191,44 +200,55 @@
                 </a>
             </div>
             <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                <h5>Nosotros</h5>
+                <h5>NOSOTROS</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a style="text-decoration: none;" href="/">
+                    <li class="mb-2">
+                    <a style="text-decoration: none;" href="/">
                         <span>
                             <i class="fa-solid fa-phone"></i>
                             Contáctanos
                         </span>
-                    </a></li>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2 mb-3">
+                <h5>SERVICIOS</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a class="text-decoration-none" href="#">
+                            <span>
+                            <i class="fa-solid fa-gears"></i>
+                            Servicios
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col-6 col-lg-2 mb-3">
-                <h5>Guides</h5>
+                <h5>REDES SOCIALES</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a class="text-decoration-none" href="/docs/5.0/getting-started/">Getting started</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="/docs/5.0/examples/starter-template/">Starter template</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="/docs/5.0/getting-started/webpack/">Webpack</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="/docs/5.0/getting-started/parcel/">Parcel</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-3">
-                <h5>Servicios</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/bootstrap">Bootstrap 5</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/icons">Icons</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/rfs">RFS</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/bootstrap-npm-starter">npm starter</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-3">
-                <h5>Community</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://opencollective.com/bootstrap">Open Collective</a></li>
-                    <li class="mb-2"><a class="text-decoration-none" href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack
-                            Overflow</a></li>
+                    <li class="mb-2 fs-3">
+                        <a class="text-decoration-none" href="#">
+                            <span>
+                                <i class="fa-brands fa-facebook"></i>
+                            </span>
+                        </a>
+
+                    <a class="text-decoration-none" href="#">
+                        <span>
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </a>
+
+                    <a class="text-decoration-none" href="#">
+                        <span>
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                    </a>
+                </li>
+
                 </ul>
             </div>
         </div>

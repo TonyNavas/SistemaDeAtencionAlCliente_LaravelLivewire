@@ -3,9 +3,9 @@
         <h3 class="fw-semibold">CONTENIDO</h3>
     </div>
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div style="border: 0;" style="width: 18rem;">
-                <img style="max-height: 200px;" src="{{ asset('img/menu.jpg') }}" class="card-img-top rounded"
+                <img style="max-height: 200px;" src="{{ asset('img/menu.jpg') }}" class="card-img-top rounded img-fluid"
                     alt="...">
                 <div class="card-body mt-3 text-center">
                     <h5 class="fw-semibold">Menú en línea</h5>
@@ -14,9 +14,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div style="border: 0;" style="width: 18rem;">
-                <img style="max-height: 200px;" src="{{ asset('img/notification.jpg') }}" class="card-img-top rounded"
+                <img style="max-height: 200px;" src="{{ asset('img/notification.jpg') }}" class="card-img-top rounded img-fluid"
                     alt="...">
                 <div class="card-body mt-3 text-center">
                     <h5 class="fw-semibold">Timbre en línea</h5>
@@ -26,9 +26,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div style="border: 0;" style="width: 18rem;">
-                <img style="max-height: 200px;" src="{{ asset('img/services.jpg') }}" class="card-img-top rounded"
+                <img style="max-height: 200px;" src="{{ asset('img/services.jpg') }}" class="card-img-top rounded img-fluid"
                     alt="...">
                 <div class="card-body mt-3 text-center">
                     <h5 class="fw-semibold">Servicios</h5>
@@ -39,9 +39,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div style="border: 0;" style="width: 18rem;">
-                <img style="max-height: 200px;" src="{{ asset('img/galery.jpg') }}" class="card-img-top rounded"
+                <img style="max-height: 200px;" src="{{ asset('img/galery.jpg') }}" class="card-img-top rounded img-fluid"
                     alt="...">
                 <div class="card-body mt-3 text-center">
                     <h5 class="fw-semibold">Galeria</h5>
