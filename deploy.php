@@ -62,7 +62,7 @@ task('deploy', [
     'deploy:secrets',       // Deploy secrets
     'deploy:vendors',
     'deploy:shared',        //
-    'artisan:storage:link', //
+    //'artisan:storage:link', //
     'artisan:view:cache',   //
     'artisan:config:cache', // Laravel specific steps
     'artisan:migrate',      //
