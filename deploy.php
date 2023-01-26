@@ -1,8 +1,7 @@
 <?php
 namespace Deployer;
 
-require 'recipe/common.php';
-
+require 'recipe/laravel.php';
 require 'contrib/npm.php';
 require 'contrib/rsync.php';
 
@@ -62,7 +61,7 @@ task('deploy', [
     'deploy:secrets',       // Deploy secrets
     'deploy:vendors',
     'deploy:shared',        //
-    //'artisan:storage:link', //
+    'artisan:storage:link', //
     'artisan:view:cache',   //
     'artisan:config:cache', // Laravel specific steps
     'artisan:migrate',      //
