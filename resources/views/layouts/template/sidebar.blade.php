@@ -23,11 +23,20 @@
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
 
+                    <li class="menu">
+                        <a href="{{ route('inicio') }}" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="fa fa-home"></i>
+                                <span>Inicio</span>
+                            </div>
+                        </a>
+                    </li>
+
                     <li class="menu mt-2 {{ Request::is('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <i class="fa fa-home {{ Request::is('home') ? 'text-white' : '' }}"></i>
-                                <span>Inicio</span>
+                                <i class="fa fa-bell {{ Request::is('home') ? 'text-white' : '' }}"></i>
+                                <span>Timbre</span>
                             </div>
                         </a>
                     </li>

@@ -14,7 +14,8 @@ class WelcomeController extends Controller
 
         $products = Product::orderBy('created_at', 'desc')
                             ->filter(request()->all())
-                            ->orderBy('id', 'desc')->paginate(4);
+                            ->latest('id')->get()->take(12);
                             return view('welcome', compact('products', 'categories'));
+
     }
 }

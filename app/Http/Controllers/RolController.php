@@ -57,6 +57,7 @@ class RolController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
 
+        session()->flash('role_saved');
         return redirect()->route('roles.index');
     }
 
@@ -106,6 +107,7 @@ class RolController extends Controller
         $role->save();
 
         $role->syncPermissions($request->input('permission'));
+        session()->flash('role_updated');
         return redirect()->route('roles.index');
     }
 
@@ -118,6 +120,8 @@ class RolController extends Controller
     public function destroy($id)
     {
         DB::table('roles')->where('id', $id)->delete();
+
+        session()->flash('role_deleted');
         return redirect()->route('roles.index');
     }
 }

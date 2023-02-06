@@ -35,8 +35,7 @@ Route::post('contacts', [ContactController::class, 'store'])->name('contacts.sto
 
 // Product routes
 Route::get('platillos/{product}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/menu', MenuController::class)->name('menu');
-Route::get('menu/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/platillos', MenuController::class)->name('menu');
 
 //Messages routes
 Route::get('mensajes', [MessageController::class, 'index'])->name('message.index');

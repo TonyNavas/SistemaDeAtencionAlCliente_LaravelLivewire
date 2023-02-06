@@ -12,6 +12,27 @@
             </span>
         </a>
         @endcan
+
+
+        {{-- Condicion para cuando se guarde un nuevo usuario --}}
+        @if(Session::get('role_saved'))
+        <div class="alert bg-primary alert-dismissible fade show" role="alert">
+            <strong>Guardado!</strong> Rol guardado correctamente.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {{-- Condicion para cuando se edite un usuario --}}
+    @elseif (Session::get('role_updated'))
+    <div class="alert bg-warning alert-dismissible fade show" role="alert">
+        <strong>Actualizado!</strong> Rol modificado correctamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      @elseif (Session::get('role_deleted'))
+      <div class="alert bg-danger alert-dismissible fade show" role="alert">
+          <strong>Eliminado!</strong> Rol eliminado correctamente.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="table-responsive">
             <table class="table table-hover table-striped table-bordered">
                 <thead>
@@ -51,4 +72,8 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+
+
