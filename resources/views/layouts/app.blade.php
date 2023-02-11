@@ -26,8 +26,7 @@
     @livewireStyles
 </head>
 
-<body style="font-family: 'Montserrat', sans-serif;
-">
+<body style="font-family: 'Montserrat', sans-serif;">
     <div id="app">
         <nav style="z-index: 10;"
             class=" flex navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed l-0 r-0">
