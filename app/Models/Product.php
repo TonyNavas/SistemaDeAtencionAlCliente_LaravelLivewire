@@ -26,7 +26,6 @@ class Product extends Model
         }else{
             return 5;
         }
-
     }
 
     public function category(){
