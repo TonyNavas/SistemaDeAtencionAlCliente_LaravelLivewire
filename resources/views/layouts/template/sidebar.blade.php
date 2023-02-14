@@ -11,7 +11,7 @@
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="./index.html" class="nav-link"> Cabañas </a>
+                            <img width="150px" src="{{ asset('img/logo.png') }}" alt="">
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">

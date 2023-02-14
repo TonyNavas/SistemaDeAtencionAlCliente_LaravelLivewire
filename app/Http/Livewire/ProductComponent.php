@@ -60,6 +60,9 @@ class ProductComponent extends Component
            $imageUrl = Storage::put('products', $this->image);
            $product->image = $imageUrl;
            $product->save();
+
+           $this->resetUI();
+           $this->emit('product-stored');
         }
     }
 
@@ -67,7 +70,6 @@ class ProductComponent extends Component
     {
 
         $recordProducts = Product::find($id);
-
         $this->name = $recordProducts->name;
         $this->description = $recordProducts->description;
         $this->price = $recordProducts->price;
@@ -95,11 +97,17 @@ class ProductComponent extends Component
            $imageUrl = Storage::put('products', $this->image);
            $product->image = $imageUrl;
            $product->save();
+
         }
+
+        $this->resetUI();
+        $this->emit('product-updated');
     }
 
 
-    public function destroy(Product $product) {
+    public function destroy($id) {
+
+        $product = Product::find($id);
 
             if($product->image){
                 Storage::delete($product->image);

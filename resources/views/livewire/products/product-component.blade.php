@@ -83,6 +83,30 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
+        window.livewire.on('product-stored', msg => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                background: '#191E3A',
+                color: '#fff',
+                title: 'Guardado correctamente!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
+
+        window.livewire.on('product-updated', msg => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                background: '#191E3A',
+                color: '#fff',
+                title: 'Modificado correctamente!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
+
         window.livewire.on('product-deleted', msg => {
             Swal.fire({
                 position: 'top-end',

@@ -1,61 +1,74 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-6 col-sm-12">
-            <div class="card shadow">
-                <div class="card-header">{{ __('Login') }}</div>
+    <section>
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              <div class="card shadow" style="border-radius: 1rem;">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                      <form action="{{ route('login') }} " method="POST">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Ingresa tu correo') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <span class="h1 fw-bold mb-0">
+                            <img class="img-fluid" src="{{ asset('img/logo.png') }}" alt="">
+                          </span>
                         </div>
 
-                        <div class="row mb-5">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesión con tu cuenta</h5>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <div class="form-outline mb-4">
+                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                          value="{{ old('email') }}" required autocomplete="email" autofocus />
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                          @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                          <label class="form-label">Correo electronico</label>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Acceder') }}
-                                </button>
+                        <div class="form-outline mb-4">
+                            <input id="password" type="password"
+                            class="form-control @error('password') is-invalid @enderror" name="password"
+                            required autocomplete="current-password">
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Olvidaste tu contraseña?') }}
-                                    </a>
-                                @endif
-                            </div>
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                          <label class="form-label" for="form2Example27">Contraseña</label>
                         </div>
-                    </form>
+
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-dark" type="submit">ACCEDER</button>
+                          </div>
+                           {{-- @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Olvidaste tu contraseña?') }}
+                                        </a>
+                                    @endif --}}
+
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">No tienes una cuenta? <a href="{{ route('register') }}"
+                            style="color: #393f81;">Registrate aquí.</a></p>
+                      </form>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </section>
 @endsection
