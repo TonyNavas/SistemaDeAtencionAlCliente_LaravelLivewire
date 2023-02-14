@@ -8,7 +8,7 @@ config:
 hosts:
   192.168.43.188:
     remote_user: server
-    hostname: 192.168.43.188
+    hostname: 192.168.1.69
     deploy_path: '/var/www/{{hostname}}'
 
 tasks:
