@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use GuzzleHttp\Handler\Proxy;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -17,11 +18,16 @@ class ProductComponent extends Component
     protected $pagination = 5;
     public $productCount;
 
+    protected $listeners = ['destroy'];
+
     public function mount()
     {
-
         $this->productCount = Product::count();
         $this->identificador = rand();
+    }
+
+    public function productCount(){
+        $this->productCount = Product::count();
     }
     public function paginationView()
     {
@@ -46,10 +52,14 @@ class ProductComponent extends Component
         ]);
 
         if ($this->image) {
-            $customFileName = uniqid() . '_.' . $this->image->extension();
-            $this->image->storeAs('public/products', $customFileName);
-            $product->image = $customFileName;
-            $product->save();
+
+            if($product->image){
+                Storage::delete($product->image);
+            }
+
+           $imageUrl = Storage::put('products', $this->image);
+           $product->image = $imageUrl;
+           $product->save();
         }
     }
 
@@ -66,6 +76,38 @@ class ProductComponent extends Component
         $this->selected_id = $recordProducts->id;
     }
 
+    public function update(){
+
+        $product = Product::find($this->selected_id);
+
+        $product->update([
+            'name' => $this->name,
+            'description' => $this->description,
+            'price' => $this->price,
+            'category_id' => $this->category_id,
+        ]);
+
+        if ($this->image) {
+
+            if($product->image){
+                Storage::delete($product->image);
+            }
+           $imageUrl = Storage::put('products', $this->image);
+           $product->image = $imageUrl;
+           $product->save();
+        }
+    }
+
+
+    public function destroy(Product $product) {
+
+            if($product->image){
+                Storage::delete($product->image);
+            }
+           $product->delete();
+
+    }
+
     public function resetUI()
     {
         $this->name = '';
@@ -74,7 +116,6 @@ class ProductComponent extends Component
         $this->price = '';
         $this->search = '';
         $this->selected_id = 0;
-
         $this->category_id = 0;
 
         $this->identificador = rand();

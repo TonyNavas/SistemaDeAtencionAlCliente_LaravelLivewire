@@ -24,6 +24,12 @@ class ProductsReviews extends Component
             'rating' => $this->rating,
             'user_id' => auth()->user()->id,
         ]);
+
+        $this->resetUI();
+    }
+
+    public function resetUI(){
+        $this->comment = '';
     }
 
     public function render()

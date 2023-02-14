@@ -65,8 +65,8 @@
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="avatar-container">
-                            <div class="avatar avatar-sm avatar-indicators avatar-online">
-                                <img alt="avatar" src="../src/assets/img/profile-30.png" class="rounded-circle">
+                            <div>
+                                <i class="fas fa-user"></i>
                             </div>
                         </div>
                     </a>

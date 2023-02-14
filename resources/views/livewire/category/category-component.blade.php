@@ -16,10 +16,6 @@
     <div class="col-lg-8 col-md-8 col-sm-12">
 
         @can('ver-categorias')
-        @include('livewire.category.image-load')
-        @endcan
-
-        @can('ver-categorias')
         <div class="card shadow">
             <div class="card-body">
                 @if ($selected_id >= 1)
@@ -33,7 +29,6 @@
                     <table class="table table-hover table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Image</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
                                 <th class="text-center" scope="col">Acciones</th>
@@ -43,9 +38,6 @@
                         <tbody>
                             @foreach ($categories as $category)
                                 <tr>
-                                    <td><img style="max-width: 70px; height: 50px;" class="img-fluid rounded"
-                                            src="{{ asset('storage/categories/' . $category->image) }}" alt="Image">
-                                    </td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
                                     <td class="text-center">

@@ -19,11 +19,6 @@
       <input type="text" wire:model.lazy="description" class="form-control" placeholder="Ingrese una descripción">
     </div>
     @error('description')<span class="text-danger er">{{ $message }}</span>@enderror
-    <div class="form-group mb-2">
-    <label for="image">Image</label>
-    <input type="file" wire:model.lazy="image" id="{{ $identificador }}" class="form-control">
-  </div>
-  @error('image')<span class="text-danger er">{{ $message }}</span>@enderror
 
     @if ($selected_id < 1)
         <button type="button" wire:click.prevent="store()" class="btn btn-primary">

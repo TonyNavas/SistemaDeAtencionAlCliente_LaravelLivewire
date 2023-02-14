@@ -13,7 +13,7 @@
                 <div class="p-3 rounded mb-3 shadow">
                     <figure>
                         <img style="width: 100%; max-height: 200px; height: 180px;" class="img-fluid rounded"
-                            src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->name }}">
+                            src="{{ Storage::url($product->image)}}" alt="{{ $product->name }}">
                     </figure>
                     <h5 class="fw-semibold" style="color: #1b2a4e">
                         {{ $product->name }}

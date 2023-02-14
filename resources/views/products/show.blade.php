@@ -13,7 +13,7 @@
                     <p class="fw-semibold text-success">{{ $product->created_at->format('d M Y') }} - Categoria: {{ $product->category->name }}</p>
                 </div>
                 <figure class="mb-5">
-                    <img style="width: 100%; max-height: 500px;" class="img-fluid text-center rounded" src="{{ asset('storage/products/' . $product->image) }}" alt="">
+                    <img style="width: 100%; max-height: 500px;" class="img-fluid text-center rounded" src="{{ Storage::url($product->image)}}" alt="">
                 </figure>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">

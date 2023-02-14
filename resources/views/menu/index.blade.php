@@ -13,16 +13,7 @@
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-12">
         <div style="position: sticky; top: 20%;" class="mb-4">
-            <form action="{{ route('menu') }}" class="shadow p-4 rounded-lg">
-                <div class="mb-4">
-                    <p class="fs-4 fw-normal">Ordenar por:</p>
-
-                    <select style="max-width: 170px;" class="form-select form-select-lg shadow-sm py-2"
-                        name="order">
-                        <option value="new">Más nuevos</option>
-                        <option value="old" @selected(request('order') == 'old')>Más viejos</option>
-                    </select>
-                </div>
+            <form action="{{ route('menu') }}" class="shadow-sm p-4 rounded">
 
                 <div class="mb-4">
                     <p class="fs-4 fw-normal">
@@ -54,7 +45,7 @@
                     <div class="col-lg-4">
                         <figure>
                             <img style="width: 100%; max-height: 16rem;" class="img-fluid rounded"
-                                src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->name }}">
+                                src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
                         </figure>
                     </div>
                     <div class="col-lg-7">

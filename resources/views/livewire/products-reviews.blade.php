@@ -2,8 +2,6 @@
     <h1 class="text-muted mb-2">Valoración</h1>
 
         @auth
-
-
             <article class="mb-2">
                 <textarea wire:model="comment" class="form-control w-100 shadow-sm" name="" rows="3" placeholder="Ingrese una reseña del platillo"></textarea>
             </article>
@@ -26,7 +24,6 @@
                     <li wire:click="$set('rating', 5)" style="cursor: pointer;" class="list-group me-1 text-{{$rating ==5 ? 'warning' : 'secondary'}}">
                         <i class="fas fa-star fs-4"></i>
                     </li>
-
                 </ul>
             </div>
 

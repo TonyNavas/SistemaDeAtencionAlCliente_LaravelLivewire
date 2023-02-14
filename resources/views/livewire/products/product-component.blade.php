@@ -46,7 +46,7 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td><img width="80px" height="70px" class="rounded" src="{{ asset('storage/products/' . $product->image) }}" alt="Image">
+                                    <td><img width="80px" height="70px" class="rounded" src="{{ Storage::url($product->image) }}" alt="Image">
                                     </td>
                                     <td>{{ $product->category->name }}</td>
                                     <td>{{ Str::limit($product->name, 10, '...') }}</td>
@@ -83,7 +83,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-        window.livewire.on('category-deleted', msg => {
+        window.livewire.on('product-deleted', msg => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -97,7 +97,7 @@
     });
 
     function Confirm(id) {
-        swal.fire({
+        Swal.fire({
             title: 'Estas seguro?',
             text: "No podras revertir esta acción!",
             icon: 'warning',
@@ -110,7 +110,7 @@
         }).then(function(result) {
             if (result.value) {
                 window.livewire.emit('destroy', id)
-                swal.close()
+                Swal.close()
             }
         });
     }
