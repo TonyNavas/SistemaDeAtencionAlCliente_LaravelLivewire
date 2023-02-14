@@ -12,6 +12,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="p-3 rounded mb-3 shadow">
                     <figure>
+
                         <img style="width: 100%; max-height: 200px; height: 180px;" class="img-fluid rounded"
                             src="{{ Storage::url($product->image)}}" alt="{{ $product->name }}">
                     </figure>

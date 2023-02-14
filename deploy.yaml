@@ -6,9 +6,9 @@ config:
   repository: 'https://github.com/TonyNavas/SistemaDeAtencionAlCliente_LaravelLivewire.git'
 
 hosts:
-  192.168.127.1:
-    remote_user: servidor
-    hostname: 192.168.127.1
+  192.168.43.188:
+    remote_user: server
+    hostname: 192.168.43.188
     deploy_path: '/var/www/{{hostname}}'
 
 tasks:

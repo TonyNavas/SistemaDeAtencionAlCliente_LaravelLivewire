@@ -7,7 +7,7 @@ export default defineConfig({
             input: [
                 'resources/app/app.css',
                 'resources/js/app.js',
-                'resources/css/app.css',
+
             ],
             refresh: true,
         }),
