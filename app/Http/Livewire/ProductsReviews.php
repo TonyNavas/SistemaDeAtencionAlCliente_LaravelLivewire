@@ -9,7 +9,7 @@ class ProductsReviews extends Component
 {
 
     public $product_id, $comment;
-
+    public $product;
     public $rating = 5;
 
     public function mount(Product $product){
