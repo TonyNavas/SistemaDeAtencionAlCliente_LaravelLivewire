@@ -73,8 +73,6 @@ class MessageSent extends Notification implements ShouldQueue
     }
 
     public function toBroadcast($notifiable){
-        return new BroadcastMessage([
-
-        ]);
+        return new BroadcastMessage([]);
     }
 }
