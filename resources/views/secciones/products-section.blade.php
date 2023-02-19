@@ -1,17 +1,17 @@
 <section style="max-width: 95%; padding-bottom: 1rem;" class="container">
     <div class="text-center mb-4">
         <h2 class="fw-semibold">
-            NUESTROS PRODUCTOS
+            Nuestros platillos
         </h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto necessitatibus iste odit, sint dolore
-            saepe. Quo perferendis recusandae</p>
+        {{-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto necessitatibus iste odit, sint dolore
+            saepe. Quo perferendis recusandae</p> --}}
     </div>
 
     <div class="row">
         @foreach ($products as $product)
         {{ Storage::url($product->image)}}
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="p-3 rounded mb-3 shadow">
+                <div class="p-3 rounded mb-3">
                     <figure>
 
                         <img style="width: 100%; max-height: 200px; height: 180px;" class="img-fluid rounded"

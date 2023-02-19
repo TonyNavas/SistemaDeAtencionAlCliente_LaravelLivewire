@@ -2,13 +2,13 @@
 
 @section('content')
     <section>
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center align-items-center">
             <div class="col col-xl-10">
-              <div class="card shadow" style="border-radius: 1rem;">
+              <div class="card" style="border-radius: 1rem;">
                 <div class="row g-0">
                   <div class="col-md-6 col-lg-5 d-none d-md-block">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    <img src="https://mfiles.alphacoders.com/950/950704.jpg"
                       alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -19,7 +19,7 @@
 
                         <div class="d-flex align-items-center mb-3 pb-1">
                           <span class="h1 fw-bold mb-0">
-                            <img class="img-fluid" src="{{ asset('img/logo.png') }}" alt="">
+                            <img width="200px" src="{{ asset('img/logo.png') }}" alt="">
                           </span>
                         </div>
 

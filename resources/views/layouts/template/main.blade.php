@@ -61,13 +61,13 @@
 
     @auth
         <script>
-            window.onload = function() {
-                Echo.private('App.Models.User.' + {{ Auth::user()->id }})
-                    .notification((notification) => {
-                        Livewire.emit('notification')
-                        console.log(notification.type);
-                    });
-            }
+            // window.onload = function() {
+            //     Echo.private('App.Models.User.' + {{ Auth::user()->id }})
+            //         .notification((notification) => {
+            //             Livewire.emit('notification')
+            //             console.log(notification.type);
+            //         });
+            // }
             window.Livewire.on('notification-received', msg => {
 
                 Swal.fire({

@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/') ? 'RouteActive' : '' }}"
+                            <a class="nav-link {{ Request::is('/') ? 'bg-primary rounded text-white' : '' }}"
                                 href="{{ route('inicio') }}">
                                 <span>
                                     <i class="fa-solid fa-house"></i>
@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link {{ Request::is('menu') ? 'RouteActive' : '' }}"
+                            <a class="nav-link {{ Request::is('platillos') ? 'bg-primary rounded text-white' : '' }}"
                                 href="{{ route('menu') }}">
                                 <span>
                                     <i class="fa-solid fa-utensils"></i>
@@ -71,7 +71,7 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link {{ Request::is('contacts') ? 'RouteActive' : '' }}" href="{{ route('contacts.index') }}">
+                            <a class="nav-link {{ Request::is('contacts') ? 'bg-primary rounded text-white' : '' }}" href="{{ route('contacts.index') }}">
                                 <span>
                                     <i class="fa-solid fa-address-card"></i>
                                     Nosotros
@@ -79,7 +79,7 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link" href="{{ route('home') }}">
+                            <a class="nav-link" href="{{ route('inicio') }}">
                                 <span>
                                     <i class="fa-solid fa-gear"></i>
                                     Servicios
@@ -97,7 +97,7 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
 
-                                    <a class="nav-link" href="{{ route('login') }}">
+                                    <a class="btn btn-primary shadow" href="{{ route('login') }}">
                                         <span>
                                             <i class="fa-solid fa-user-lock"></i>
                                             Iniciar sesión
@@ -114,10 +114,10 @@
                         @else
                             @livewire('notifications-home')
 
-                            <div class="dropdown dropstart">
-                                <a class="nav-link dropdown" type="button" id="dropdownMenuButton1"
+                            <div class="dropdown">
+                                <a class="btn btn-primary dropdown" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="badge bg-primary p-2">
+                                    <span>
                                         <i class="fa-solid fa-user-check"></i>
                                     {{ Auth::user()->name }}
                                     </span>
@@ -160,7 +160,8 @@
         </main>
     </div>
     @livewireScripts
-    @auth
+
+    {{-- @auth
         <script>
             window.onload = function() {
                 Echo.private('App.Models.User.' + {{ Auth::user()->id }})
@@ -186,7 +187,7 @@
                 })
             })
         </script>
-    @endauth
+    @endauth --}}
 
 </body>
 @include('layouts.footer')
