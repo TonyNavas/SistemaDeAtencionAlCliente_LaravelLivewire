@@ -24,7 +24,13 @@ use App\Http\Controllers\WelcomeController;
 */
 
 
+
 Auth::routes();
+
+Route::get('/eventos', function(){
+    return view('welcome');
+});
+
 // Home routes
 Route::get('/', WelcomeController::class)->name('inicio');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -51,4 +57,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('admin/categories', CategoryComponent::class)->name('categories.index')->middleware('can:ver-categorias');
     Route::get('admin/products', ProductComponent::class)->name('products.index')->middleware('can:ver-products');
 });
+
 
