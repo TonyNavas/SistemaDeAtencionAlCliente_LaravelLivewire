@@ -48,7 +48,10 @@ Route::get('mensajes', [MessageController::class, 'index'])->name('message.index
 
 // Notifications routes
 Route::post('messages', [MessageController::class,'store'])->name('messages.store');
+Route::post('messages-send', [MessageController::class,'sendMessage'])->name('messages.send');
 Route::get('messages/{message}',[ MessageController::class,'show'])->name('messages.show');
+
+Route::get('delete-messages/{id}',[MessageController::class,'destroy'])->name('messages.destroy');
 
 // Admin routes
 Route::group(['middleware' => ['auth']], function(){

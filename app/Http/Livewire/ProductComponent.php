@@ -22,7 +22,7 @@ class ProductComponent extends Component
 
     public function mount()
     {
-        $this->productCount = Product::count();
+        $this->productCount();
         $this->identificador = rand();
     }
 
@@ -62,6 +62,7 @@ class ProductComponent extends Component
            $product->save();
 
            $this->resetUI();
+           $this->productCount();
            $this->emit('product-stored');
         }
     }
@@ -113,6 +114,9 @@ class ProductComponent extends Component
                 Storage::delete($product->image);
             }
            $product->delete();
+           $this->productCount();
+
+           $this->emit('product-deleted');
 
     }
 

@@ -98,16 +98,27 @@
                     @endcan
 
 
+                    @php
+                    use App\Models\User;
+                    $usuariosConRol = User::has('roles')->count();
+                @endphp
+
+
+                @if ($usuariosConRol < 1)
+
+                    @else
                     <li class="menu {{ Request::is('mensajes') ? 'active' : '' }}">
                         <a href="{{ route('message.index') }}" aria-expanded="false" class="dropdown-toggle">
                             <div>
                                 <span>
                                     <i class="fas fa-message"></i>
-                                    Mensajes
+                                        Mensajes
                                 </span>
                             </div>
                         </a>
                     </li>
+                @endif
+
 
 
                     <li class="menu menu-heading">

@@ -8,8 +8,9 @@
     </div>
 
     <div class="row">
+
         @foreach ($products as $product)
-        {{ Storage::url($product->image)}}
+
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="p-3 rounded mb-3">
                     <figure>

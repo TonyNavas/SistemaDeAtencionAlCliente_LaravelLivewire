@@ -161,7 +161,7 @@
     </div>
     @livewireScripts
 
-    {{-- @auth
+    @auth
         <script>
             window.onload = function() {
                 Echo.private('App.Models.User.' + {{ Auth::user()->id }})
@@ -187,7 +187,7 @@
                 })
             })
         </script>
-    @endauth --}}
+    @endauth
 
 </body>
 @include('layouts.footer')

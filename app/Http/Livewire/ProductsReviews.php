@@ -17,6 +17,11 @@ class ProductsReviews extends Component
     }
 
     public function store(){
+
+        $this->validate([
+            'comment' => 'required',
+            'rating' => 'required',
+        ]);
         $product = Product::find($this->product_id);
 
         $product->reviews()->create([
@@ -29,7 +34,8 @@ class ProductsReviews extends Component
     }
 
     public function resetUI(){
-        $this->comment = '';
+        $this->comment = "";
+        $this->rating = 5;
     }
 
     public function render()
