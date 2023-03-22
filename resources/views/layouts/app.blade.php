@@ -32,9 +32,12 @@
             class=" flex navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed l-0 r-0">
 
             <div class="container">
-                <a class="navbar-brand ms-4" href="{{ url('/') }}">
+                <a class="navbar-brand ms-4 d-none d-lg-block" href="{{ url('/') }}">
                     <img style="width: 150px; height: 50px;" src="{{ asset('img/logo.png') }}" alt="">
                 </a>
+                @auth
+                @livewire('notifications-home')
+                @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -112,7 +115,7 @@
                                 </li>
                             @endif --}}
                         @else
-                            @livewire('notifications-home')
+
 
                             <div class="dropdown">
                                 <a class="btn btn-primary dropdown" type="button" id="dropdownMenuButton1"
