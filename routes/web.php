@@ -27,17 +27,13 @@ use App\Http\Controllers\WelcomeController;
 
 Auth::routes();
 
-Route::get('/eventos', function(){
-    return view('welcome');
+Route::get('/nosotros', function(){
+    return view('about.about');
 });
 
 // Home routes
 Route::get('/', WelcomeController::class)->name('inicio');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Contact routes
-Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
-Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('can:ver-timbre');
 
 // Product routes
 Route::get('platillos/{product}', [ProductController::class, 'show'])->name('products.show');

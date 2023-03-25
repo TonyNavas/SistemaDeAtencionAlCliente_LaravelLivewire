@@ -16,5 +16,6 @@ class MenuController extends Controller
                             ->filter(request()->all())
                             ->orderBy('id', 'desc')->paginate(5);
                             return view('menu.index', compact('products', 'categories'));
+
     }
 }

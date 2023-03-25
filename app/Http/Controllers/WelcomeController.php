@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -15,7 +17,10 @@ class WelcomeController extends Controller
         $products = Product::orderBy('created_at', 'desc')
                             ->filter(request()->all())
                             ->latest('id')->get()->take(12);
-                            return view('welcome', compact('products', 'categories'));
+
+        return view('welcome', compact('products', 'categories'));
+
+
 
     }
 }

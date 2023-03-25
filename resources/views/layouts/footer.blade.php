@@ -1,84 +1,108 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Conéctese con nosotros en las redes sociales:</span>
-      </div>
-      <!-- Left -->
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div style="margin-top: 5rem;">
 
-      <!-- Right -->
-      <div>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
+    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Acerca de nuestra empresa</h5>
 
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Finca el cortes
-            </h6>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sapiente corrupti eveniet nemo molestiae necessitatibus tenetur.
-            </p>
-          </div>
-          <!-- Grid column -->
+                    <p>
+                        Somos una empresa agro turística que diversifica la finca introduciendo nuevas técnicas
+                        agronómicas y cultivos. Además, brinda espacios de recreación para la familia asi como para la
+                        enseñanza a campesinos, estudiantes de primaria y secundaria sobre el manejo integral de la
+                        finca con enfoque de sostenibilidad ambiental.
+                    </p>
 
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              SERVICIOS
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Menu en línea</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Timbre en línea</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Camping</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Caminatas</a>
-            </p>
-          </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-            <p><i class="fas fa-home me-3 text-secondary"></i> Nicaragua, NI</p>
-            <p>
-              <i class="fas fa-envelope me-3 text-secondary"></i>
-              info@example.com
-            </p>
-            <p><i class="fas fa-phone me-3 text-secondary"></i> +</p>
-          </div>
+                    <div class="mt-4">
+                        <!-- Facebook -->
+                        <div class="d-grid">
+                            <a href="https://www.facebook.com/Wiwitours" class="btn btn-floating btn-warning btn-lg">
+                                <i class="fab fa-facebook-f"></i>acebook
+                            </a>
+                        </div>
+                        <!-- Dribbble -->
+                        {{-- <a type="button" class="btn btn-floating btn-warning btn-lg">
+                            <i class="fab fa-dribbble"></i></a>
+                        <!-- Twitter -->
+                        <a type="button" class="btn btn-floating btn-warning btn-lg">
+                            <i class="fab fa-twitter"></i></a>
+                        <!-- Google + -->
+                        <a type="button" class="btn btn-floating btn-warning btn-lg">
+                            <i class="fab fa-google-plus-g"></i></a>
+                        <!-- Linkedin --> --}}
+                    </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 pb-1">Contacto</h5>
+
+                    <ul class="fa-ul" style="margin-left: 1.65em;">
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">
+                                Nicaragua, NI
+                            </span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-envelope"></i></span><span
+                                class="ms-2">wiwitours.raan@gmail.com</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">
+                                +505 84 95 98 20
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Horario de atención</h5>
+
+                    <table class="table text-center text-white">
+                        <tbody class="font-weight-normal">
+                            <tr>
+                                <td>Sabados y domingos:</td>
+                                <td>12pm - 5pm</td>
+                            </tr>
+                            {{-- <tr>
+                                <td>Domingos:</td>
+                                <td>12pm - 5pm</td>
+                            </tr> --}}
+                        </tbody>
+                    </table>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+            <div class="float-end">
+                <a href="https://www.facebook.com/TonyNavas27">
+                    <small>
+                        <span>
+                            <i class="fa-solid fa-code"></i>
+                            Developed by: TonyNavas
+                        </span>
+                    </small>
+
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
+        <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-      © 2023 Todos los derechos reservados:
-      <a class="text-reset fw-bold" href="https://www.facebook.com/pages/Finca-El-Cortez/1794561387450160">Finca el cortez</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Todos los derechos reservados:
+            <a class="text-white" href="#">Finca el cortez</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</div>

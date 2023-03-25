@@ -2,7 +2,7 @@
     <div id="Controls" class="carousel slide" data-bs-ride="carousel">
         <div style="height: 500px;" class="carousel-inner">
           <div class="carousel-item active">
-            <img style="height: 500px;" src="{{ asset('img/1.jpeg') }}" class="d-block w-100" alt="img1">
+            <img style="height: 500px; " src="{{ asset('img/1.jpeg') }}" class="d-block w-100" alt="img1">
           </div>
           <div class="carousel-item">
             <img style="height: 500px;" src="{{ asset('img/2.jpeg') }}" class="d-block w-100" alt="img2">
@@ -24,3 +24,24 @@
       </div>
 
 </div>
+
+
+<style>
+    .wrap {
+        width: 100%;
+        height: 500px;
+        ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom, rgb(0 0 0 / .0), rgb(0 0 0 / .5)), url({{ asset('img/cabana.jpeg') }});
+        background-size: cover;
+        background-position: center;
+    }
+
+    .wrap-texto {
+        color: #fff;
+        text-align: center;
+        width: 50%;
+    }
+</style>

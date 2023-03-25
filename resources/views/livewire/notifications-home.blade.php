@@ -1,18 +1,18 @@
 @auth
-<div class="dropdown py-2 d-lg-none d-md-block">
-    <button class="btn btn-primary btn position-relative" id="dLabel" data-bs-toggle="dropdown"
+<div class="dropdown py-2 me-3 mt-1 mb-2 d-md-block">
+    <button wire:click="resetNotificationCount" class="btn btn-info text-white btn position-relative" id="dLabel" data-bs-toggle="dropdown"
         class="position-relative text-decoration-none text-dark">
         <span>
             Notificaciones
             <i class="fa-regular fa-bell"></i>
         </span>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
             {{ auth()->user()->notification }}
         </span>
     </button>
 
     <div wire:ignore.self class="dropdown-menu" role="menu">
-        <div class="card" style="width: 20rem; border:0px;">
+        <div class="card" style="width: 20rem; border:0px; max-height:300px; overflow-y:auto;">
             <div class="card-body">
                 <h5 class="card-title">Notificaciones</h5>
                 @foreach ($notifications as $notify)

@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<figure class="mb-5">
-@include('carousel')
-</figure>
 
-<section style=" max-width: 95%; padding-bottom:10rem;" class="container">
+<section style=" max-width: 95%; padding-top: 5rem; padding-bottom:10rem;" class="container">
 <h1 class="text-center mb-5 fw-semibold">
     Menú <i class="fa-solid fa-utensils"></i>
 </h1>
@@ -13,7 +10,7 @@
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-12">
         <div style="position: sticky; top: 20%;" class="mb-4">
-            <form action="{{ route('menu') }}" class="shadow-sm p-4 rounded">
+            <form action="{{ route('menu') }}" class="shadow p-4 rounded">
 
                 <div class="mb-4">
                     <p class="fs-4 fw-normal">
@@ -106,6 +103,7 @@
                 </article>
             @endforeach
         </div>
+
     </div>
 </div>
 

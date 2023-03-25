@@ -29,15 +29,17 @@
 <body style="font-family: 'Montserrat', sans-serif;">
     <div id="app">
         <nav style="z-index: 10;"
-            class=" flex navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed l-0 r-0">
+            class="flex navbar navbar-expand-lg navbar-light bg-light shadow position-fixed l-0 r-0">
 
-            <div class="container">
+            <div class="container-fluid text-center">
                 <a class="navbar-brand ms-4 d-none d-lg-block" href="{{ url('/') }}">
                     <img style="width: 150px; height: 50px;" src="{{ asset('img/logo.png') }}" alt="">
                 </a>
+
                 @auth
-                @livewire('notifications-home')
+                    @livewire('notifications-home')
                 @endauth
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -47,8 +49,9 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/') ? 'bg-primary rounded text-white' : '' }}"
+
+                        <li class="nav-item mt-1 mb-2">
+                            <a class="nav-link shadow-sm rounded {{ Request::is('/') ? 'activeLink rounded text-white' : '' }}"
                                 href="{{ route('inicio') }}">
                                 <span>
                                     <i class="fa-solid fa-house"></i>
@@ -56,8 +59,8 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item ms-2">
-                            <a class="nav-link {{ Request::is('platillos') ? 'bg-primary rounded text-white' : '' }}"
+                        <li class="nav-item ms-2 mt-1 mb-2">
+                            <a class="nav-link shadow-sm rounded {{ Request::is('platillos') ? 'activeLink rounded text-white' : '' }}"
                                 href="{{ route('menu') }}">
                                 <span>
                                     <i class="fa-solid fa-utensils"></i>
@@ -65,27 +68,20 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item ms-2">
-                            <a class="nav-link" href="{{ route('home') }}">
+                        <li class="nav-item ms-2 mt-1 mb-2">
+                            <a class="nav-link shadow-sm rounded" href="{{ route('home') }}">
                                 <span>
                                     <i class="fa-solid fa-bell"></i>
                                     Timbre
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item ms-2">
-                            <a class="nav-link {{ Request::is('contacts') ? 'bg-primary rounded text-white' : '' }}" href="{{ route('contacts.index') }}">
+                        <li class="nav-item ms-2 mt-1 mb-2">
+                            <a class="nav-link shadow-sm rounded {{ Request::is('nosotros') ? 'activeLink rounded text-white' : '' }}"
+                                href="/nosotros">
                                 <span>
                                     <i class="fa-solid fa-address-card"></i>
                                     Nosotros
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item ms-2">
-                            <a class="nav-link" href="{{ route('inicio') }}">
-                                <span>
-                                    <i class="fa-solid fa-gear"></i>
-                                    Servicios
                                 </span>
                             </a>
                         </li>
@@ -97,32 +93,35 @@
 
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
 
-                                    <a class="btn btn-primary shadow" href="{{ route('login') }}">
+                            @if (Route::has('login'))
+                                <li class="nav-item mt-1 mb-2">
+                                    <a class="nav-link" href="{{ route('login') }}">
                                         <span>
-                                            <i class="fa-solid fa-user-lock"></i>
-                                            Iniciar sesión
+                                            <i class="fa-solid fa-user-lock fs-3" title="Iniciar sesión en tu cuenta."></i>
+
                                         </span>
                                     </a>
                                 </li>
                             @endif
 
                             {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Crear una cuenta') }}</a>
-                                </li>
+                            <li class="nav-item mt-1 mb-2">
+                                <a class="nav-link" href="{{ route('register') }}">
+                                    <span>
+                                        <i class="fa-solid fa-right-to-bracket fs-3"></i>
+
+                                    </span>
+                                </a>
+                            </li>
                             @endif --}}
                         @else
-
-
                             <div class="dropdown">
-                                <a class="btn btn-primary dropdown" type="button" id="dropdownMenuButton1"
+                                <a class="dropdown nav-link" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span>
                                         <i class="fa-solid fa-user-check"></i>
-                                    {{ Auth::user()->name }}
+                                        {{ Auth::user()->name }}
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -140,7 +139,8 @@
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             <span>
-                                                <i style="font-size: 20px;" class="fa-solid fa-right-from-bracket text-danger"></i>
+                                                <i style="font-size: 20px;"
+                                                    class="fa-solid fa-right-from-bracket text-danger"></i>
                                                 {{ __('Cerrar sesión') }}
                                             </span>
                                         </a>
@@ -196,3 +196,10 @@
 @include('layouts.footer')
 
 </html>
+
+
+<style>
+    .activeLink{
+        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+    }
+</style>
