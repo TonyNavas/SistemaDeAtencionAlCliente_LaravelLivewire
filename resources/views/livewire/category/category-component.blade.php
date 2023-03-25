@@ -83,6 +83,31 @@
                 timer: 1500
             })
         });
+
+        window.livewire.on('category-stored', msg => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                background: '#191E3A',
+                color: '#fff',
+                title: 'Guardado correctamente!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
+
+        window.livewire.on('category-updated', category => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                background: '#191E3A',
+                color: '#fff',
+                title: 'Actualizado correctamente!',
+                text: category.name,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
     });
 
     function Confirm(id) {

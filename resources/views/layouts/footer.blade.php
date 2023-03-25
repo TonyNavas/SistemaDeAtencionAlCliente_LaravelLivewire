@@ -71,7 +71,7 @@
                         <tbody class="font-weight-normal">
                             <tr>
                                 <td>Sabados y domingos:</td>
-                                <td>12pm - 5pm</td>
+                                {{-- <td>12pm - 5pm</td> --}}
                             </tr>
                             {{-- <tr>
                                 <td>Domingos:</td>

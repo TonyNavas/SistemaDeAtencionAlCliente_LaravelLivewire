@@ -28,6 +28,13 @@ class NotificationsHome extends Component
         $this->emit('notification-received');
     }
 
+    public function deleteNotifications(){
+
+        $notify = auth()->user()->notifications();
+        $notify->delete();
+
+                $this->notifications = auth()->user()->notifications;
+    }
     public function resetNotificationCount(){
         auth()->user()->notification = 0;
         auth()->user()->save();

@@ -64,7 +64,7 @@ class MessageResponse extends Notification implements ShouldQueue
 
         return [
             'url' => route('messages.show', $this->message->id),
-            'message' => User::find($this->message->from_user_id)->name . ' ha respondido a tu solicitud',
+            'message' => User::find($this->message->from_user_id)->name . ' te ha enviado un mensaje.',
         ];
     }
 

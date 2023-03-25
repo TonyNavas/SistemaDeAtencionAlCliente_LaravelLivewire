@@ -41,6 +41,7 @@ class CategoryComponent extends Component
             'description' => $this->description,
         ]);
 
+        $this->emit('category-stored');
         $this->resetUI();
         $this->identificador = rand();
         $this->categoryCount();
@@ -64,6 +65,7 @@ class CategoryComponent extends Component
             'description' => $this->description,
         ]);
 
+        $this->emit('category-updated', $category);
         $this->resetUI();
         $this->identificador = rand();
     }

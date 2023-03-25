@@ -51,7 +51,7 @@
                     <ul class="navbar-nav me-auto">
 
                         <li class="nav-item mt-1 mb-2">
-                            <a class="nav-link shadow-sm rounded {{ Request::is('/') ? 'activeLink rounded text-white' : '' }}"
+                            <a class="nav-link shadow-sm rounded {{ Request::is('/') ? 'bg-primary rounded text-white' : '' }}"
                                 href="{{ route('inicio') }}">
                                 <span>
                                     <i class="fa-solid fa-house"></i>
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2 mt-1 mb-2">
-                            <a class="nav-link shadow-sm rounded {{ Request::is('platillos') ? 'activeLink rounded text-white' : '' }}"
+                            <a class="nav-link shadow-sm rounded {{ Request::is('platillos') ? 'bg-primary rounded text-white' : '' }}"
                                 href="{{ route('menu') }}">
                                 <span>
                                     <i class="fa-solid fa-utensils"></i>
@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li class="nav-item ms-2 mt-1 mb-2">
-                            <a class="nav-link shadow-sm rounded {{ Request::is('nosotros') ? 'activeLink rounded text-white' : '' }}"
+                            <a class="nav-link shadow-sm rounded {{ Request::is('nosotros') ? 'bg-primary rounded text-white' : '' }}"
                                 href="/nosotros">
                                 <span>
                                     <i class="fa-solid fa-address-card"></i>
@@ -99,22 +99,11 @@
                                     <a class="nav-link" href="{{ route('login') }}">
                                         <span>
                                             <i class="fa-solid fa-user-lock fs-3" title="Iniciar sesión en tu cuenta."></i>
-
                                         </span>
                                     </a>
                                 </li>
                             @endif
 
-                            {{-- @if (Route::has('register'))
-                            <li class="nav-item mt-1 mb-2">
-                                <a class="nav-link" href="{{ route('register') }}">
-                                    <span>
-                                        <i class="fa-solid fa-right-to-bracket fs-3"></i>
-
-                                    </span>
-                                </a>
-                            </li>
-                            @endif --}}
                         @else
                             <div class="dropdown">
                                 <a class="dropdown nav-link" type="button" id="dropdownMenuButton1"
@@ -196,10 +185,3 @@
 @include('layouts.footer')
 
 </html>
-
-
-<style>
-    .activeLink{
-        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
-    }
-</style>
